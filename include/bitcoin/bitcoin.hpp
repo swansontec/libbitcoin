@@ -8,7 +8,7 @@
 #define LIBBITCOIN_BITCOIN_HPP
 
 /**
- * API Users: Include only this header. Direct use of other headers is fragile 
+ * API Users: Include only this header. Direct use of other headers is fragile
  * and unsupported as header organization is subject to change.
  *
  * Maintainers: Do not include this header internal to this library.
@@ -133,6 +133,7 @@
 #include <bitcoin/bitcoin/utility/variable_uint_size.hpp>
 #include <bitcoin/bitcoin/utility/writer.hpp>
 #include <bitcoin/bitcoin/wallet/bitcoin_uri.hpp>
+#include <bitcoin/bitcoin/wallet/bitid.hpp>
 #include <bitcoin/bitcoin/wallet/dictionary.hpp>
 #include <bitcoin/bitcoin/wallet/encrypted_keys.hpp>
 #include <bitcoin/bitcoin/wallet/hd_keys.hpp>

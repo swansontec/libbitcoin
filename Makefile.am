@@ -154,6 +154,7 @@ src_libbitcoin_la_SOURCES = \
     src/utility/threadpool.cpp \
     src/utility/variable_uint_size.cpp \
     src/wallet/bitcoin_uri.cpp \
+    src/wallet/bitid.cpp \
     src/wallet/dictionary.cpp \
     src/wallet/encrypted_keys.cpp \
     src/wallet/hd_keys.cpp \
@@ -268,6 +269,7 @@ test_libbitcoin_test_SOURCES = \
     test/utility/thread.cpp \
     test/utility/variable_uint_size.cpp \
     test/wallet/bitcoin_uri.cpp \
+    test/wallet/bitid.cpp \
     test/wallet/encrypted_keys.cpp \
     test/wallet/hd_keys.cpp \
     test/wallet/message.cpp \
@@ -456,6 +458,7 @@ include_bitcoin_bitcoin_utility_HEADERS = \
 include_bitcoin_bitcoin_walletdir = ${includedir}/bitcoin/bitcoin/wallet
 include_bitcoin_bitcoin_wallet_HEADERS = \
     include/bitcoin/bitcoin/wallet/bitcoin_uri.hpp \
+    include/bitcoin/bitcoin/wallet/bitid.hpp \
     include/bitcoin/bitcoin/wallet/dictionary.hpp \
     include/bitcoin/bitcoin/wallet/encrypted_keys.hpp \
     include/bitcoin/bitcoin/wallet/hd_keys.hpp \

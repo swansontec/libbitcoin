@@ -52,8 +52,8 @@ BOOST_AUTO_TEST_CASE(uri_parse_format_test)
     // Various blank parameter elements:
     BOOST_REQUIRE( uri_parse("bitcoin:?x=y", result));
     BOOST_REQUIRE( uri_parse("bitcoin:?x=", result));
-    BOOST_REQUIRE(!uri_parse("bitcoin:?=y", result));
-    BOOST_REQUIRE(!uri_parse("bitcoin:?=", result));
+    BOOST_REQUIRE( uri_parse("bitcoin:?=y", result));
+    BOOST_REQUIRE( uri_parse("bitcoin:?=", result));
     BOOST_REQUIRE( uri_parse("bitcoin:?x", result));
 }
 

@@ -32,6 +32,66 @@ namespace libbitcoin {
 namespace wallet {
 
 /**
+ * A parsed URI according to RFC 3986.
+ */
+class BC_API uri
+{
+public:
+    /**
+     * Decodes a URI from a string.
+     * @param strict Set to false to tolerate unescaped special characters.
+     */
+    bool decode(const std::string& in, bool strict=true);
+    std::string encode() const;
+
+    /**
+     * Returns the lowercased URI scheme, such as `bitcoin`
+     */
+    std::string scheme() const;
+    void set_scheme(const std::string& scheme);
+
+    /**
+     * Returns the unescaped URI hierarchical part (hostname + path).
+     */
+    std::string hierarchy() const;
+
+    /**
+     * Returns the complete unescaped query string, if any.
+     */
+    std::string query() const;
+    bool has_query() const;
+    void set_query(const std::string& query);
+
+    /**
+     * Returns the complete unescaped fragment string, if any.
+     */
+    std::string fragment() const;
+    bool has_fragment() const;
+    void set_fragment(const std::string& fragment);
+
+    typedef std::map<std::string, std::string> query_map;
+
+    /**
+     * Interprets the query string as a sequence of key-value pairs.
+     * All query strings are valid, so this function cannot fail.
+     * The results are unescaped. Both keys and values can be zero-length,
+     * and if the same key is appears multiple times, the final one wins.
+     */
+    query_map decode_query() const;
+    void encode_query(const query_map& map);
+
+private:
+    // All parts are stored escaped:
+    std::string scheme_;
+    std::string hierarchy_;
+    std::string query_;
+    std::string fragment_;
+
+    bool has_query_ = false;
+    bool has_fragment_ = false;
+};
+
+/**
  * The URI parser calls these methods each time it extracts a URI component.
  */
 class BC_API uri_visitor
@@ -72,7 +132,7 @@ public:
  * false allows these malformed URI's to parse anyhow.
  * @return false if the URI is malformed.
  */
-BC_API bool uri_parse(const std::string& uri,
+BC_API bool uri_parse(const std::string& in,
     uri_visitor& result, bool strict=true);
 
 /**
@@ -106,4 +166,3 @@ private:
 } // namespace libbitcoin
 
 #endif
-
